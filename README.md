@@ -1,6 +1,19 @@
 # DataKom
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
+Frontend for DataKom - a website about data & communications vocational educations.
+
+## Getting Started
+
+Clone the repository to your local machine
+```$ git clone https://github.com/snowydane/DataKom.git```
+
+Install dependencies
+```yarn install```
+
+## Dependencies
+
+- [Bootstrap 4](https://getbootstrap.com/)
+- [ngx-bootstrap](https://github.com/valor-software/ngx-bootstrap)
 
 ## Development server
 
