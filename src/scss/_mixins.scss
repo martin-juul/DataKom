@@ -1,0 +1,38 @@
+/*
+  Transitions
+ */
+
+@mixin transition($transition...) {
+  -moz-transition: $transition !important;
+  -o-transition: $transition !important;
+  -webkit-transition: $transition !important;
+  transition: $transition !important;
+}
+
+@mixin transition-property($property...) {
+  -moz-transition-property: $property !important;
+  -o-transition-property: $property !important;
+  -webkit-transition-property: $property !important;
+  transition-property: $property !important;
+}
+
+@mixin transition-duration($duration...) {
+  -moz-transition-property: $duration !important;
+  -o-transition-property: $duration !important;
+  -webkit-transition-property: $duration !important;
+  transition-property: $duration !important;
+}
+
+@mixin transition-timing-function($timing...) {
+  -moz-transition-timing-function: $timing !important;
+  -o-transition-timing-function: $timing !important;
+  -webkit-transition-timing-function: $timing !important;
+  transition-timing-function: $timing !important;
+}
+
+@mixin transition-delay($delay...) {
+  -moz-transition-delay: $delay !important;
+  -o-transition-delay: $delay !important;
+  -webkit-transition-delay: $delay !important;
+  transition-delay: $delay !important;
+}
