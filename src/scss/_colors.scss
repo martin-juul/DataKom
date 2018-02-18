@@ -1,0 +1,24 @@
+/* Color values */
+
+$dk-orange: hsl(28, 92%, 54%);
+$dk-blue: hsl(189, 100%, 25%);
+$dk-cyan: hsl(194, 64%, 53%);
+$dk-green: hsl(78, 66%, 43%);
+
+/* Color properties */
+
+.bg-orange {
+  background-color: $dk-orange;
+}
+
+.bg-blue {
+  background-color: $dk-blue;
+}
+
+.bg-cyan {
+  background-color: $dk-cyan;
+}
+
+.bg-green {
+  background-color: $dk-green;
+}

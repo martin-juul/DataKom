@@ -3,7 +3,7 @@
   <div class="container">
 
     <h1 class="display-4">Data- og kommunikationsuddannelsen</h1>
-    <p class="lead">Vil du være med på IT? Så se hvilken uddannelse der passer dig herunder.</p>
+    <p class="lead">Bliv en af danmarks kommende talenter indenfor IT.</p>
 
   </div>
 
@@ -33,11 +33,19 @@
 
 </div>
 
-<div class="container d-flex">
+<div class="container d-flex mt-5 flex-column">
 
-  <div class="table-responsive">
+  <div class="d-flex flex-column">
 
+    <h3 class="text-center font-weight-light mb-5">Hovedforløb 1</h3>
 
+    <a href="#" class="badge badge-default text-right text-muted">EUD, EUV eller EUX?</a>
+
+    <app-table
+      [caption]="caption"
+      [headings]="headings"
+      [footers]="footers"
+      [columns]="columns"></app-table>
 
   </div>
 
