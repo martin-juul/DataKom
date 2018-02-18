@@ -1,4 +1,4 @@
-export class SemesterTable {
+export class Table {
   constructor(
     caption: string,
     headings: string[],
