@@ -1,0 +1,26 @@
+<div class="table-responsive">
+
+  <table class="table table-striped">
+
+    <caption *ngIf="caption">{{ caption }}</caption>
+
+    <thead>
+      <tr class="bg-orange text-white">
+        <th scope="col" *ngFor="let heading of headings">{{ heading }}</th>
+      </tr>
+    </thead>
+
+    <tfoot>
+      <tr class="bg-orange text-white">
+        <th scope="col" *ngFor="let footer of footers">{{ footer }}</th>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <tr *ngFor="let column of columns" app-table-row [row]="column">
+      </tr>
+    </tbody>
+
+  </table>
+
+</div>
