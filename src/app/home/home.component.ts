@@ -1,81 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+
+import { HomeService } from "./home.service";
+import { Table } from "../shared/data/model/table.model";
+import { Subscription } from "rxjs/Subscription";
+import { Button, EduPickerService, TableBeforeText } from "../@lib/widgets/edupicker/edu-picker.service";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
+  semesters: Table[];
+  tableBeforeText: TableBeforeText;
+  eduPickerButtons: Button[];
+  subscription: Subscription;
 
-  caption: string;
-  headings: string[];
-  footers: string[];
-  columns: Array<Array<string>>;
-
-  constructor() { }
+  constructor(private homeService: HomeService,
+              private eduPickerService: EduPickerService) { }
 
   ngOnInit() {
-    this.caption = 'Oversigt over hovedforløb 1';
-    this.headings = ['Fag nr.', 'Titel', 'EUD & EUV 3', 'EUV 1 & 2', 'EUX'];
-    this.footers = ['', 'Antal Uger', '10', '10', '11'];
-    this.columns = [
-      [
-        '16471',
-        'Grundlæggende programmering',
-        '2',
-        '2',
-        '2'
-      ],
-      [
-        '16476',
-        'Clientside programmering',
-        '1',
-        '1',
-        '1'
-      ],
-      [
-        '16474',
-        'Database programming',
-        '1',
-        '1',
-        '1'
-      ],
-      [
-        '16483',
-        'Versionering og dokumentation',
-        '0,5',
-        '0,5',
-        '0,5'
-      ],
-      [
-        '6223',
-        'Netværk I',
-        '1,5',
-        '1,5',
-        '1,5'
-      ],
-      [
-        '6225',
-        'Computerteknologi',
-        '1',
-        '1',
-        '1'
-      ],
-      [
-        '6226',
-        'Serverteknologi I',
-        '0',
-        '0',
-        '1'
-      ],
-      [
-        '6230',
-        'Database Server',
-        '1',
-        '1',
-        '1'
-      ]
-    ];
+    this.subscription = this.homeService.entriesChanged
+      .subscribe((entries: Table[]) => {
+        this.semesters = entries;
+      }).add(
+        this.eduPickerService.selected$.subscribe(
+          clicked => {
+            this.onSelected(clicked)
+          }
+        )
+      );
+
+    this.getEduPickerSetup();
+  }
+
+  getSelectedSemesters(eduId: number) {
+    this.homeService.getSemesters(eduId);
+  }
+
+  onSelected($event) {
+    this.getSelectedSemesters($event);
+  }
+
+  getEduPickerSetup() {
+    const setup = this.homeService.getEduPickerSetup();
+    this.eduPickerButtons = setup.buttons;
+    this.tableBeforeText = setup.beforeText;
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

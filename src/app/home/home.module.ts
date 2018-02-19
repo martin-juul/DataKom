@@ -1,11 +1,12 @@
-import {NgModule} from '@angular/core';
-import {RouterModule} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
-import {SharedModule} from '../shared/shared.module';
-import {HomeRoutingModule} from './home-routing.module';
+import { SharedModule } from '../shared/shared.module';
+import { HomeRoutingModule } from './home-routing.module';
 
-import {HomeComponent} from './home.component';
-import {LibModule} from '../@lib/lib.module';
+import { HomeComponent } from './home.component';
+import { LibModule } from '../@lib/lib.module';
+import { HomeService } from "./home.service";
 
 @NgModule({
   imports: [
@@ -14,7 +15,12 @@ import {LibModule} from '../@lib/lib.module';
     HomeRoutingModule,
     LibModule
   ],
-  declarations: [HomeComponent]
+  declarations: [
+    HomeComponent
+  ],
+  providers: [
+    HomeService
+  ]
 })
 export class HomeModule {
 }
