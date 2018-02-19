@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { LibModule } from "./@lib/lib.module";
 import { MarkdownModule } from "ngx-markdown";
+import { TitleService } from "./shared/title.service";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,10 @@ import { MarkdownModule } from "ngx-markdown";
     LibModule.forRoot(),
     MarkdownModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    Title,
+    TitleService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
