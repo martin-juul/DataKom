@@ -7,10 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './@core/core.module';
 import { SharedModule } from './shared/shared.module';
 
+import { TabsModule } from 'ngx-bootstrap/tabs';
+
 import { AppComponent } from './app.component';
 import { LibModule } from "./@lib/lib.module";
 import { MarkdownModule } from "ngx-markdown";
 import { TitleService } from "./shared/title.service";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { TitleService } from "./shared/title.service";
     ReactiveFormsModule,
     SharedModule,
     LibModule.forRoot(),
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
+    TabsModule.forRoot()
   ],
   providers: [
     Title,
