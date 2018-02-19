@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+
 import { Table, TableBeforeText } from "../edu-picker.service";
 
 @Component({
