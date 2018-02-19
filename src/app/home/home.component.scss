@@ -3,3 +3,30 @@
 .home-edu-select {
   padding: 1.25rem;
 }
+
+.jumbotron-fluid {
+  background: url('/assets/images/headers/home-header.jpg') no-repeat fixed center -70px;
+  background-size: 100% 100%;
+  height: 320px;
+  word-break: break-all;
+}
+
+.spacer {
+  height: 54%;
+}
+
+.title-bg {
+  background-color: hsla(195, 97%, 13%, 0.8);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.display-4 {
+  font-weight: 600;
+  color: $dk-green;
+}
+
+.lead {
+  font-weight: 500;
+  color: $dk-orange;
+}
