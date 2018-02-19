@@ -1,0 +1,48 @@
+@import "~scss/colors";
+
+.jumbotron-fluid {
+  background: url('/assets/images/headers/educations-header.jpg') no-repeat fixed 0 -70px;
+  color: #1d1d1d;
+  height: 320px;
+}
+
+.page-title {
+  font-weight: 700;
+}
+
+.spacer {
+  height: 104%;
+}
+
+.title-bg {
+  background-color: hsla(0, 0%, 87%, 0.6);
+  padding-bottom: 1px;
+}
+
+.card-subtitle {
+  margin-bottom: 5px;
+}
+
+.lightblue {
+  background-color: darken(hsl(195, 53%, 79%), 5%);
+}
+
+.green {
+  background-color: $dk-green;
+}
+
+.blue {
+  background-color: $dk-blue;
+}
+
+.orange {
+  background-color: $dk-orange;
+}
+
+.red {
+  background-color: red;
+}
+
+.color-text-muted {
+  color: #f5f5f5;
+}
