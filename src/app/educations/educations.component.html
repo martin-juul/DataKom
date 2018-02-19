@@ -1,0 +1,31 @@
+<div class="jumbotron jumbotron-fluid">
+
+  <div class="container-fluid spacer"></div>
+
+  <div class="container-fluid title-bg">
+    <div class="container">
+
+      <h1 class="page-title">Programmering og datakommunikation</h1>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="card-deck">
+    <div class="card" *ngFor="let card of cards">
+      <img class="card-img-top" src="{{ card.image }}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ card.name }}</h5>
+        <p class="card-subtitle text-muted">{{ card.subtitle }}</p>
+        <p class="card-text">{{ card.description }}</p>
+      </div>
+      <div class="card-footer">
+        <a class="card-link" href="#">Læs mere her</a>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -13,7 +13,8 @@
 
     <li
       class="nav-item"
-      routerLinkActive="active">
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }">
       <a
         class="nav-link"
         routerLink="/">
@@ -21,17 +22,21 @@
       </a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item"
+        routerLinkActive="active">
       <a
-        class="nav-link">
+        class="nav-link"
+        routerLink="uddannelser">
         Uddannelser
       </a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item"
+        routerLinkActive="active">
       <a
-        class="nav-link">
-        Elevtype
+        class="nav-link"
+        routerLink="elev-type">
+        Elev type
       </a>
     </li>
 
