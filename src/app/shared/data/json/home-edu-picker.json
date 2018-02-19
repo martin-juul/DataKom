@@ -1,0 +1,26 @@
+{
+  "buttons": {
+    "id": "38afd525-3af9-4680-8b9b-0d53481a6679",
+    "items": [
+      {
+        "label": "IT-Supporter",
+        "emit": 1,
+        "color": "btn-primary"
+      },
+      {
+        "label": "Datatekniker / Infrastruktur",
+        "emit": 2,
+        "color": "btn-danger"
+      },
+      {
+        "label": "Datatekniker / Programmering",
+        "emit": 3,
+        "color": "btn-success"
+      }
+    ]
+  },
+  "beforeText": {
+    "title": "Vælg en uddannelse",
+    "subtitle": "så præsenterer vi hovedforløbene."
+  }
+}

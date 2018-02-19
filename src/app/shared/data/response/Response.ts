@@ -1,3 +1,6 @@
+import { Table } from "../model/table.model";
+import { TableBeforeText } from "../../../@lib/widgets/edupicker/edu-picker.service";
+
 interface Pagination {
   totalCount: number,
   totalPages: number,
@@ -5,10 +8,17 @@ interface Pagination {
   nextLink?: string
 }
 
-export interface Response {
+interface BaseResponse {
   status: number;
-  ok: boolean;
+}
+
+export interface Response extends BaseResponse {
   result: any;
+}
+
+export interface TableResponse extends BaseResponse {
+  beforeText: TableBeforeText;
+  tables: Table|Table[];
 }
 
 export interface PagedResponse extends Response {

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "IT-Supporter",
+    "subtitle": "Sørg for den bedste IT-faglige hjælp til maskiner – og mennesker",
+    "description": "Der findes stort set ikke virksomheder, der ikke er afhængige af it på den ene eller anden måde. Og det betyder samtidig, at stort set alle virksomheder har behov for nogle, der kan sikre, at systemerne virker optimalt – og en, der kan hjælpe, hvis de ikke gør.",
+    "image": "assets/images/cards/it-supporter-card.jpg"
+  },
+  {
+    "name": "Datatekniker / Infrastruktur",
+    "subtitle": "Opbyg brugbare og brugervenlige IT-systemer og netværk",
+    "description": "De kan være simple eller avancerede. Statiske eller dynamiske. Til brugere eller superbrugere. Som datetekniker med speciale i infrastruktur er det din opgave, at netværket eller it-systemet fungerer optimalt i forhold til målgruppen.",
+    "image": "assets/images/cards/datatekniker-card.jpg"
+  },
+  {
+    "name": "Datatekniker / Programmering",
+    "subtitle": "Skab fremtidens digitale løsninger - og skab fremtiden!",
+    "description": "Java, SML. Python, SQL, C# … tænker du, at det er total volapyk? Så kan vi garantere dig, at det synes du ikke, når du er færdig med dit speciale. Koder og programmering hænger nemlig uløseligt sammen – men det ved du nok allerede.",
+    "image": "assets/images/cards/datatekniker-card.jpg"
+  }
+]
