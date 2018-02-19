@@ -43,6 +43,19 @@ export class DataStorageService {
       const data = require('../data/json/studentType.json');
       return Observable.of(data);
     }
+    // These are going to be: api/content/contentGuid
+    if (endPoint === 'content/education/it-supporter') {
+      const data = require('../data/json/edu/items/it-supporter.json');
+      return Observable.of(data);
+    }
+    if (endPoint === 'content/education/datatekniker-infrastruktur') {
+      const data = require('../data/json/edu/items/datatekniker-infrastruktur.json');
+      return Observable.of(data);
+    }
+    if (endPoint === 'content/education/datatekniker-programmering') {
+      const data = require('../data/json/edu/items/datatekniker-programmering.json');
+      return Observable.of(data);
+    }
 
   }
 }
