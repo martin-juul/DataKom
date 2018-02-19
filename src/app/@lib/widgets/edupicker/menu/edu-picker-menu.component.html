@@ -1,0 +1,10 @@
+<div class="justify-content-between">
+
+  <button
+    *ngFor="let button of buttons"
+    (click)="selected(button?.emit)"
+    class="btn {{ button?.color || 'btn-default' }}">
+    {{ button?.label }}
+  </button>
+
+</div>

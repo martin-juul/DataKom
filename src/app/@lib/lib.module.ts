@@ -1,18 +1,29 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { RouterModule } from "@angular/router";
+import { CommonModule } from '@angular/common';
 
-const BASE_MODULES = [CommonModule];
+import { TableComponent } from './table/table.component';
+import { TableRowComponent } from './table/table-row/table-row.component';
+import { EduPickerTableComponent } from "./widgets/edupicker/table/edu-picker-table.component";
+import { EduPickerMenuComponent } from "./widgets/edupicker/menu/edu-picker-menu.component";
+import { EduPickerComponent } from "./widgets/edupicker/edu-picker.component";
+import { EduPickerService } from "./widgets/edupicker/edu-picker.service";
 
-import {
-  TableComponent
-} from './table/table.component';
-import {
-  TableRowComponent
-} from './table/table-row/table-row.component';
+const BASE_MODULES = [
+  CommonModule,
+  RouterModule
+];
 
 const COMPONENTS = [
   TableComponent,
-  TableRowComponent
+  TableRowComponent,
+  EduPickerMenuComponent,
+  EduPickerTableComponent,
+  EduPickerComponent
+];
+
+const PROVIDERS = [
+  EduPickerService
 ];
 
 @NgModule({
@@ -25,6 +36,9 @@ const COMPONENTS = [
   exports: [
     ...COMPONENTS,
   ],
+  providers: [
+    ...PROVIDERS
+  ]
 })
 export class LibModule {
   static forRoot(): ModuleWithProviders {
