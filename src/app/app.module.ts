@@ -8,7 +8,8 @@ import { CoreModule } from './@core/core.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
-
+import { LibModule } from "./@lib/lib.module";
+import { MarkdownModule } from "ngx-markdown";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { AppComponent } from './app.component';
     CoreModule,
     HttpClientModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    LibModule.forRoot(),
+    MarkdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
