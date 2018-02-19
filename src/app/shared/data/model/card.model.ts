@@ -4,6 +4,7 @@ export class Card {
     subtitle?: string,
     description?: string,
     image?: string,
-    color?: string
+    color?: string,
+    internalLink?: string
   ) { }
 }
