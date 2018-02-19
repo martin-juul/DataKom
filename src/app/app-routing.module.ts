@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 const appRoutes: Routes = [
   { path: '', loadChildren: './home/home.module#HomeModule' },
   { path: 'uddannelser', loadChildren: './educations/educations.module#EducationsModule' },
-  { path: 'elev-type', loadChildren: './student-types/student-type.module#StudentTypeModule' }
+  { path: 'elevtype', loadChildren: './student-types/student-type.module#StudentTypeModule' }
 ];
 
 @NgModule({

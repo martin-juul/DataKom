@@ -4,6 +4,7 @@ import { HomeService } from "./home.service";
 import { Table } from "../shared/data/model/table.model";
 import { Subscription } from "rxjs/Subscription";
 import { Button, EduPickerService, TableBeforeText } from "../@lib/widgets/edupicker/edu-picker.service";
+import { TitleService } from "../shared/title.service";
 
 @Component({
   selector: 'app-home',
@@ -17,9 +18,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   constructor(private homeService: HomeService,
-              private eduPickerService: EduPickerService) { }
+              private eduPickerService: EduPickerService,
+              private titleService: TitleService) { }
 
   ngOnInit() {
+    this.titleService.setTitle('Hjem');
+
     this.subscription = this.homeService.entriesChanged
       .subscribe((entries: Table[]) => {
         this.semesters = entries;

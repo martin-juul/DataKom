@@ -3,7 +3,7 @@ import { Title } from "@angular/platform-browser";
 
 @Injectable()
 export class TitleService {
-  suffix = ' - DataKom';
+  private suffix = ' - DataKom';
 
   constructor(private titleService: Title) { }
 

@@ -1,10 +1,10 @@
 export class Card {
   constructor(
-    name?: string,
-    subtitle?: string,
-    description?: string,
-    image?: string,
-    color?: string,
-    internalLink?: string
+    public name?: string,
+    public subtitle?: string,
+    public description?: string,
+    public image?: string,
+    public color?: string,
+    public internalLink?: string
   ) { }
 }

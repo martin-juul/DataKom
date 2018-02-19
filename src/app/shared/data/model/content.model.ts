@@ -1,13 +1,13 @@
 export class Header {
   constructor(
-    name?: string,
-    image?: string
+    public name?: string,
+    public image?: string
   ) { }
 }
 
 export class Content {
   constructor(
-    header?: Header,
-    content?: string
+    public header?: Header,
+    public content?: string
   ) { }
 }

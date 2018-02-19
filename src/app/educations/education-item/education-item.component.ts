@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from "@angular/router";
 import { Subscription } from "rxjs/Subscription";
 import { Content } from "../../shared/data/model/content.model";
 import { EducationsService } from "../educations.service";
+import { TitleService } from "../../shared/title.service";
 
 @Component({
   selector: 'app-education-item',
@@ -15,13 +16,15 @@ export class EducationItemComponent {
   subscription: Subscription;
 
   constructor (private route: ActivatedRoute,
-               private educationsService: EducationsService) { }
+               private educationsService: EducationsService,
+               private titleService: TitleService) { }
 
   ngOnInit() {
     this.subscription = this.route.params.subscribe(params => {
       this.education = params['education'];
       this.educationsService.getContent(this.education);
       this.content = this.educationsService.content;
+      this.titleService.setTitle(this.content.header.name);
     });
   }
 }

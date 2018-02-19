@@ -1,17 +1,17 @@
 export class Table {
   constructor(
-    title: string,
-    caption: string,
-    link: TableLink,
-    headings: string[],
-    footers: string[],
-    columns: string[][]
+    public title: string,
+    public caption: string,
+    public link: TableLink,
+    public headings: string[],
+    public footers: string[],
+    public columns: string[][]
   ) {}
 }
 
 class TableLink {
   constructor(
-    label: string,
-    path: string
+    public label: string,
+    public path: string
   ) { }
 }
