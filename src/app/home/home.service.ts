@@ -41,6 +41,15 @@ export class HomeService {
     return { buttons: buttons, beforeText: beforeText }
   }
 
+  getEduPickerStudentTypes(id: number) {
+    let eduTypes: Button[] = [];
+    this.dataStorageService.get(`eduTypes/1`)
+      .subscribe(res => {
+        eduTypes = res.buttons
+      });
+    return eduTypes;
+  }
+
   setEntries(entries: Table[], beforeText: TableBeforeText) {
     this.semesterEntries = entries;
     this.tableBeforeText = beforeText;

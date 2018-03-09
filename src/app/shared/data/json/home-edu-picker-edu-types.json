@@ -1,0 +1,27 @@
+[
+  {
+    "label": "EUD",
+    "emit": 1,
+    "color": "btn-primary"
+  },
+  {
+    "label": "EUV 1",
+    "emit": 2,
+    "color": "btn-danger"
+  },
+  {
+    "label": "EUV 2",
+    "emit": 3,
+    "color": "btn-success"
+  },
+  {
+    "label": "EUV 3",
+    "emit": 4,
+    "color": "btn-primary"
+  },
+  {
+    "label": "EUX",
+    "emit": 5,
+    "color": "btn-primary"
+  }
+]

@@ -8,7 +8,7 @@ import 'rxjs/add/observable/of';
 
 @Injectable()
 export class DataStorageService {
-  private api = `${environment}`;
+  private api = `${environment.api}`;
 
   constructor(private http: HttpClient) { }
 
@@ -22,12 +22,18 @@ export class DataStorageService {
   /*
   * Only for testing before we implement the api.
   */
-  get(endPoint: string): Observable<any> {
+  get(endPoint: string) {
+
+    return this.http.get(`${this.api}${endPoint}`,
+      {
+        observe: 'response'
+      }).catch(ErrorService.handleError)
+
     /*const start = 0;
     return Observable.of(start);*/
 
 
-    if (endPoint === 'semester/3/all') {
+    /*if (endPoint === 'semester/3/all') {
       const data = require('../data/json/semester-tables.json');
       return Observable.of(data)
     }
@@ -43,6 +49,10 @@ export class DataStorageService {
       const data = require('../data/json/studentType.json');
       return Observable.of(data);
     }
+    if (endPoint === 'eduTypes/1') {
+      const data = require('../data/json/home-edu-picker-edu-types.json');
+      return Observable.of(data);
+    }
     // These are going to be: api/content/contentGuid
     if (endPoint === 'content/education/it-supporter') {
       const data = require('../data/json/edu/items/it-supporter.json');
@@ -55,7 +65,7 @@ export class DataStorageService {
     if (endPoint === 'content/education/datatekniker-programmering') {
       const data = require('../data/json/edu/items/datatekniker-programmering.json');
       return Observable.of(data);
-    }
+    }*/
 
   }
 }

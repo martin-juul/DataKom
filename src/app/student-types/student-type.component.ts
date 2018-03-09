@@ -22,16 +22,14 @@ export class StudentTypeComponent implements OnInit, OnDestroy {
     scrollTo(0, 0);
     this.studentTypeService.getCards();
 
-    /*this.subscription = this.educationsService.entriesChanged
+    this.subscription = this.studentTypeService.entriesChanged
       .subscribe((entries: Card[]) => {
         this.cards = entries;
-      });*/
-
-    this.cards = this.studentTypeService.cardEntries;
+      });
   }
 
   ngOnDestroy() {
-    // this.subscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
 }

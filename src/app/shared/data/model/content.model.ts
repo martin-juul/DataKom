@@ -7,7 +7,8 @@ export class Header {
 
 export class Content {
   constructor(
-    public header?: Header,
+    public header_title?: string,
+    public header_image?: string,
     public content?: string
   ) { }
 }

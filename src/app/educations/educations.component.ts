@@ -21,16 +21,14 @@ export class EducationsComponent implements OnInit, OnDestroy {
     this.titleService.setTitle('Uddannelser');
     this.educationsService.getCards();
 
-    /*this.subscription = this.educationsService.entriesChanged
+    this.subscription = this.educationsService.entriesChanged
       .subscribe((entries: Card[]) => {
         this.cards = entries;
-      });*/
-
-    this.cards = this.educationsService.cardEntries;
+      });
   }
 
   ngOnDestroy() {
-    // this.subscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
 }

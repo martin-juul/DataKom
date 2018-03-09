@@ -12,9 +12,9 @@ export class StudentTypeService {
 
   getCards() {
     this.dataStorageService
-      .get(`widget/3`)
-      .subscribe((data: Card[]) => {
-        this.setEntries(data);
+      .get('cards')
+      .subscribe((data) => {
+        this.setEntries(<Card[]>data.body);
       })
   }
 

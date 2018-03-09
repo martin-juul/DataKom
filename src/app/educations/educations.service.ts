@@ -14,18 +14,17 @@ export class EducationsService {
 
   getCards() {
     this.dataStorageService
-      .get(`widget/2`)
-      .subscribe((data: Card[]) => {
-        this.setEntries(data);
+      .get('content/cards')
+      .subscribe((data) => {
+        this.setEntries(<Card[]>data.body);
       })
   }
 
   getContent(slug: string) {
-    this.dataStorageService
-      .get('content/education/' + slug)
-      .subscribe((data: Content) => {
-        this.content = data;
-      });
+    return this.dataStorageService
+      .get('content/' + slug)
+      .map((response) => response)
+      .toPromise();
   }
 
   setEntries(entries: Card[]) {

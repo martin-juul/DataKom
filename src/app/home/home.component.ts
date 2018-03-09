@@ -1,11 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
-
-import { HomeService } from "./home.service";
-import { Table } from "../shared/data/model/table.model";
-import { Subscription } from "rxjs/Subscription";
-import { Button, EduPickerService, TableBeforeText } from "../@lib/widgets/edupicker/edu-picker.service";
-import { TitleService } from "../shared/title.service";
+import { HomeService } from './home.service';
+import { Table } from '../shared/data/model/table.model';
+import { Subscription } from 'rxjs/Subscription';
+import { Button, EduPickerService, TableBeforeText } from '../@lib/widgets/edupicker/edu-picker.service';
+import { TitleService } from '../shared/title.service';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +15,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   semesters: Table[];
   tableBeforeText: TableBeforeText;
   eduPickerButtons: Button[];
+  eduTypes: Button[];
   subscription: Subscription;
 
   constructor(private homeService: HomeService,
@@ -31,7 +31,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       }).add(
         this.eduPickerService.selected$.subscribe(
           clicked => {
-            this.onSelected(clicked)
+            this.onSelected(clicked);
+          }
+        )
+      ).add(
+        this.eduPickerService.selectedStudentType$.subscribe(
+          clicked => {
+            this.onSelectedStudentType(clicked);
           }
         )
       );
@@ -43,8 +49,16 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.homeService.getSemesters(eduId);
   }
 
+  getSelectedStudentTypes(eduId: number) {
+   // this.homeService.getStudentTypes(eduId);
+  }
+
   onSelected($event) {
     this.getSelectedSemesters($event);
+  }
+
+  onSelectedStudentType($event) {
+    this.getSelectedStudentTypes($event);
   }
 
   getEduPickerSetup() {
