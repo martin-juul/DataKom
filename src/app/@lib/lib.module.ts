@@ -8,6 +8,7 @@ import { EduPickerTableComponent } from "./widgets/edupicker/table/edu-picker-ta
 import { EduPickerMenuComponent } from "./widgets/edupicker/menu/edu-picker-menu.component";
 import { EduPickerComponent } from "./widgets/edupicker/edu-picker.component";
 import { EduPickerService } from "./widgets/edupicker/edu-picker.service";
+import { EduPickerCardsComponent } from './widgets/edupicker/cards/edu-picker-cards.component';
 
 const BASE_MODULES = [
   CommonModule,
@@ -19,7 +20,8 @@ const COMPONENTS = [
   TableRowComponent,
   EduPickerMenuComponent,
   EduPickerTableComponent,
-  EduPickerComponent
+  EduPickerComponent,
+  EduPickerCardsComponent
 ];
 
 const PROVIDERS = [

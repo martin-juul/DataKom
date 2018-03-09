@@ -10,6 +10,7 @@ export class EduPickerComponent {
   @Input() tables: Table[];
   @Input() tableBeforeText: TableBeforeText;
   @Input() buttons: Button[];
+  @Input() eduTypes: Button[];
 
   constructor() {
   }
