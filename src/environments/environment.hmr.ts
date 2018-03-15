@@ -1,3 +1,4 @@
+// Hot Module Replacement environment
 export const environment = {
   production: false,
   hmr: true,
