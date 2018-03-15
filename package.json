@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "hmr": "ng serve --hmr -e=hmr"
+    "hmr": "ng serve --hmr -e=hmr",
+    "prod": "ng serve --prod"
   },
   "private": true,
   "dependencies": {
