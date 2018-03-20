@@ -8,6 +8,7 @@ import { CoreModule } from './@core/core.module';
 import { SharedModule } from './shared/shared.module';
 
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { AccordionModule } from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
 import { LibModule } from "./@lib/lib.module";
@@ -28,7 +29,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     SharedModule,
     LibModule.forRoot(),
     MarkdownModule.forRoot(),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    AccordionModule.forRoot()
   ],
   providers: [
     Title,

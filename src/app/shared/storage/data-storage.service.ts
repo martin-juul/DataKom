@@ -22,50 +22,11 @@ export class DataStorageService {
   /*
   * Only for testing before we implement the api.
   */
-  get(endPoint: string) {
+  get(endPoint: string, params?: Object) {
 
     return this.http.get(`${this.api}${endPoint}`,
       {
         observe: 'response'
       }).catch(ErrorService.handleError)
-
-    /*const start = 0;
-    return Observable.of(start);*/
-
-
-    /*if (endPoint === 'semester/3/all') {
-      const data = require('../data/json/semester-tables.json');
-      return Observable.of(data)
-    }
-    if (endPoint === 'widget/1') {
-      const data = require('../data/json/home-edu-picker.json');
-      return Observable.of(data);
-    }
-    if (endPoint === 'widget/2') {
-      const data = require('../data/json/edu/types.json');
-      return Observable.of(data);
-    }
-    if (endPoint === 'widget/3') {
-      const data = require('../data/json/studentType.json');
-      return Observable.of(data);
-    }
-    if (endPoint === 'eduTypes/1') {
-      const data = require('../data/json/home-edu-picker-edu-types.json');
-      return Observable.of(data);
-    }
-    // These are going to be: api/content/contentGuid
-    if (endPoint === 'content/education/it-supporter') {
-      const data = require('../data/json/edu/items/it-supporter.json');
-      return Observable.of(data);
-    }
-    if (endPoint === 'content/education/datatekniker-infrastruktur') {
-      const data = require('../data/json/edu/items/datatekniker-infrastruktur.json');
-      return Observable.of(data);
-    }
-    if (endPoint === 'content/education/datatekniker-programmering') {
-      const data = require('../data/json/edu/items/datatekniker-programmering.json');
-      return Observable.of(data);
-    }*/
-
   }
 }
