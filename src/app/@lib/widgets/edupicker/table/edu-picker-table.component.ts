@@ -9,7 +9,6 @@ import { Table, TableBeforeText } from "../edu-picker.service";
 })
 export class EduPickerTableComponent {
   @Input() tables: Table[];
-  @Input() beforeText: TableBeforeText;
 
   constructor() {
   }

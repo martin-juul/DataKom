@@ -1,10 +1,26 @@
-<div class="justify-content-between">
+<div class="justify-content-between d-flex" *ngIf="buttons">
 
   <button
-    *ngFor="let button of buttons"
-    (click)="selected(button?.emit)"
-    class="btn {{ button?.color || 'btn-default' }}">
+    *ngFor="let button of buttons; index as i"
+    (click)="selected(button?.emit, i, button.label)"
+    [class.active]="clickedIndex === i"
+    class="btn {{ button?.color || getButtonColor(i) }}">
     {{ button?.label }}
   </button>
 
 </div>
+
+<ng-template [ngIf]="isClicked == false">
+  <h3 class="text-center mt-2">
+    {{ beforeText?.title }}
+    <small class="text-muted">{{ beforeText?.subtitle }}</small>
+  </h3>
+</ng-template>
+
+<ng-container *ngIf="clickedLabel">
+  <h4 class="text-center mt-3 text-muted">
+    {{ clickedLabel }}
+  </h4>
+</ng-container>
+
+

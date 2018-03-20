@@ -1,4 +1,4 @@
-<div class="table-responsive">
+<div class="table-responsive mb-5">
 
   <table class="table table-striped">
 
@@ -22,5 +22,40 @@
     </tbody>
 
   </table>
+
+  <accordion>
+    <accordion-group
+      heading="Hovedforløbets indhold"
+      [isOpen]="isFirstOpen"
+      [panelClass]="panelClass">
+      <ng-container *ngFor="let accordion1 of accordions">
+        <ng-container *ngFor="let accordion of accordion1">
+          <div class="row mt-5 border-bottom" >
+            <div>
+              <p class="text-uppercase mb-10px">
+                <span class="course-no">{{ accordion.course_no }}</span> <span
+                class="course-name font-weight-bold h5">{{ accordion.course_name }}</span>
+                <span class="course-duration">- Antal uger {{ accordion.course_duration }}</span>
+              </p>
+            </div>
+          </div>
+          <div class="row mt-1">
+            <div class="col">
+              <p class="text-uppercase text-muted font-weight-bold">Skole</p>
+              <p>
+                {{ accordion.school_attendance_desc }}
+              </p>
+            </div>
+            <div class="col border-left">
+              <p class="text-uppercase text-muted font-weight-bold">Praktik</p>
+              <p>
+                {{ accordion.internship_desc }}
+              </p>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </accordion-group>
+  </accordion>
 
 </div>

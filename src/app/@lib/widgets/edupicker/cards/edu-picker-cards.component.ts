@@ -8,10 +8,25 @@ import { Button, EduPickerService } from '../edu-picker.service';
 })
 export class EduPickerCardsComponent {
   @Input('studentTypes') buttons: Button[];
+  isClicked = false;
+  clickedIndex: number;
+  colorClasses: string[] = [
+    'bg-orange',
+    'bg-blue',
+    'bg-cyan',
+    'bg-green',
+    'bg-red'
+  ];
 
   constructor(private eduPickerService: EduPickerService) { }
 
-  selected(emitValue: string|number) {
+  getButtonColor(index: number) {
+    return this.colorClasses[index];
+  }
+
+  selected(emitValue: string|number, selectedIndex?: number) {
+    this.isClicked = true;
+    this.clickedIndex = selectedIndex;
     this.eduPickerService.onSelectedStudentType(emitValue);
   }
 }

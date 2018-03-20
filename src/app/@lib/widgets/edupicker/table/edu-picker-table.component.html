@@ -1,21 +1,20 @@
-<h3 class="text-center" *ngIf="!tables">
-  {{ beforeText.title }}
-  <small class="text-muted" *ngIf="beforeText?.subtitle">{{ beforeText?.subtitle }}</small>
-</h3>
+<ng-container *ngIf="tables">
+  <div class="d-flex flex-column" *ngFor="let table of tables">
 
-<div class="d-flex flex-column" *ngFor="let table of tables">
+    <h3 class="text-center font-weight-light mb5" *ngIf="table?.title">{{ table?.title }}</h3>
 
-  <h3 class="text-center font-weight-light mb5" *ngIf="table.title">{{ table?.title }}</h3>
+    <a
+      *ngIf="table?.link"
+      [routerLink]="table?.link.path"
+      class="badge badge-default text-right text-muted">{{ table?.link.label }}</a>
 
-  <a
-    *ngIf="table?.link"
-    [routerLink]="table?.link.path"
-    class="badge badge-default text-right text-muted">{{ table?.link.label }}</a>
+    <app-table
+      [headings]="table?.headings"
+      [footers]="table?.footers"
+      [columns]="table?.columns"
+      [caption]="table?.caption"
+      [accordions]="table?.accordions"></app-table>
 
-  <app-table
-    [headings]="table?.headings"
-    [footers]="table?.footers"
-    [columns]="table?.columns"
-    [caption]="table?.caption"></app-table>
+  </div>
 
-</div>
+</ng-container>

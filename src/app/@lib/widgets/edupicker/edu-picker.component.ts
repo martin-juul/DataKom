@@ -7,10 +7,10 @@ import { Button, Table, TableBeforeText } from "./edu-picker.service";
   styleUrls: ['./edu-picker.component.scss'],
 })
 export class EduPickerComponent {
-  @Input() tables: Table[];
-  @Input() tableBeforeText: TableBeforeText;
-  @Input() buttons: Button[];
-  @Input() eduTypes: Button[];
+  @Input() tables?: Table[];
+  @Input() tableBeforeText?: TableBeforeText;
+  @Input() buttons?: Button[];
+  @Input() eduTypes?: Button[];
 
   constructor() {
   }

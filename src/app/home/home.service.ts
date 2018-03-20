@@ -1,59 +1,90 @@
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs/Observable";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
-import { DataStorageService } from "../shared/storage/data-storage.service";
-import { TableResponse } from "../shared/data/response/Response";
-import { Table } from "../shared/data/model/table.model";
-import { Subject } from "rxjs/Subject";
-import { Button, TableBeforeText } from "../@lib/widgets/edupicker/edu-picker.service";
+import { DataStorageService } from '../shared/storage/data-storage.service';
+import { Table, TableSemesterAcoordion } from '../shared/data/model/table.model';
+import { Subject } from 'rxjs/Subject';
+import { Button, TableBeforeText } from '../@lib/widgets/edupicker/edu-picker.service';
+import { ButtonRaw } from '../shared/data/response/button-raw.model';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { StudentType } from '../shared/data/model/student-type.model';
+import { SemesterRaw } from '../shared/data/response/semester-raw.model';
 
 @Injectable()
 export class HomeService {
+  private api = environment.api;
   entriesChanged = new Subject<Table[]>();
   private semesterEntries: Table[] = [];
-  public tableBeforeText: TableBeforeText = <TableBeforeText>{};
+  public tableBeforeText: TableBeforeText = <TableBeforeText>{
+    'title': 'Vælg en uddannelse',
+    'subtitle': 'så præsenterer vi hovedforløbene.'
+  };
 
-  constructor(private dataStorageService: DataStorageService) {
+  constructor(private dataStorageService: DataStorageService,
+              private http: HttpClient) {
   }
 
-  getSemesters(eduId: number) {
-    // return this.dataStorageService.get(`semester/${eduId}/all`);
+  getSemesters(eduId: number, groupId: number): Observable<Table[]> {
+    return this.http
+      .get<SemesterRaw[]>(`${this.api}semesters/${groupId}/${eduId}`)
+      .map(raws => this.provideSemesterTableFrom(raws))
+  }
 
-    this.dataStorageService
-      /*.get<TableResponse>(`semester/${eduId}/all`)
-      .subscribe(data => {
-        this.setEntries(data.result);
-      });*/
-      .get(`semester/${eduId}/all`)
-      .subscribe(data => {
-        this.setEntries(data.tables, data.beforeText);
+  loadButtons(): Observable<Button[]> {
+    return this.http
+      .get<ButtonRaw[]>(`${this.api}educations?filter=id.short_name`)
+      .map(raws => this.provideButtonsFrom(raws));
+  }
+
+  loadCards(): Observable<any> {
+    return this.http
+      .get<StudentType[]>(`${this.api}studentTypes?filter=id.name.student_type_group_id`)
+      .map(raws => this.provideCardsFrom(raws));
+  }
+
+  provideButtonsFrom(raws: ButtonRaw[]): Button[] {
+    return raws.map(raw => new Button(
+      raw.short_name,
+      raw.id
+    ));
+  }
+
+  provideCardsFrom(raws: CardRaw[]): Button[] {
+    return raws.map(raw => new Button(
+      raw.name,
+      raw.student_type_group_id
+    ));
+  }
+
+  provideSemesterTableFrom(raws: SemesterRaw[]) {
+    let semesters: Table[] = [];
+
+    for (let semester of raws) {
+      let totalWeeks = 0;
+
+      semesters.push({
+        title: `Hovedforløb ${ semester.semester }`,
+        caption: `Oversigt over Hovedforløb ${ semester.semester }`,
+        headings: ['Fag nr.', 'Titel', 'Antal uger'],
+        columns: semester.courses.map(col => {
+          if (col.length) {
+            totalWeeks += parseFloat(col.length.replace(/[,]/g,'.'));
+          }
+          return [col.course_no, col.name, col.length]
+        }),
+        footers: ['', '', `Total ${totalWeeks}`],
+        accordions: semester.courses.map(col => [new TableSemesterAcoordion(
+          col.course_no, col.name, col.length, col.school_attendance_desc, col.internship_desc)]),
       });
-  }
+    }
 
-  getEduPickerSetup() {
-    let buttons: Button[] = [];
-    let beforeText: TableBeforeText = <TableBeforeText>{};
-    this.dataStorageService.get(`widget/1`)
-      .subscribe(res => {
-        buttons = res.buttons.items;
-        beforeText = res.beforeText;
-      });
-    return { buttons: buttons, beforeText: beforeText }
+    return semesters;
   }
+}
 
-  getEduPickerStudentTypes(id: number) {
-    let eduTypes: Button[] = [];
-    this.dataStorageService.get(`eduTypes/1`)
-      .subscribe(res => {
-        eduTypes = res.buttons
-      });
-    return eduTypes;
-  }
-
-  setEntries(entries: Table[], beforeText: TableBeforeText) {
-    this.semesterEntries = entries;
-    this.tableBeforeText = beforeText;
-    this.entriesChanged.next(this.semesterEntries.slice());
-  }
-
+interface CardRaw {
+  id?: number;
+  name?: string;
+  student_type_group_id?: number;
 }

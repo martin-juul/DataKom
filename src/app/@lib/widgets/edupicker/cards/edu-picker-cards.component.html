@@ -1,10 +1,22 @@
-<div class="justify-content-between">
+<div class="row justify-content-center">
+  <div class="justify-content-between d-inline-flex w-75" *ngIf="buttons">
 
-  <button
-    *ngFor="let button of buttons"
-    (click)="selected(button?.emit)"
-    class="btn {{ button?.color || 'btn-default' }}">
-    {{ button?.label }}
-  </button>
+    <button
+      *ngFor="let button of buttons; index as i"
+      (click)="selected(button?.emit, i)"
+      [class.active]="clickedIndex === i"
+      class="btn {{ button?.color || getButtonColor(i) }}">
+      {{ button?.label }}
+    </button>
 
+  </div>
 </div>
+
+<ng-template [ngIf]="isClicked == false">
+  <h3 class="text-center mt-4">
+    Vælg elevtype
+  </h3>
+  <p class="color-text-muted text-center">
+    <a title="Åbner ny fane" target="_blank" href="/elevtyper">Læs mere om elevtyper her.</a>
+  </p>
+</ng-template>

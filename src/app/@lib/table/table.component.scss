@@ -1,1 +1,31 @@
 @import "~scss/colors";
+
+.mb-10px {
+  margin-bottom: 10px;
+}
+
+.semester-header {
+  background-color: $dk-blue;
+  color: #fff;
+  padding: .8em;
+  width: 100%;
+}
+
+.course-no {
+  color: #fff;
+  background-color: $dk-green;
+  padding: .8em;
+  margin-right: 1.5em;
+}
+
+.course-name, .course-duration {
+  color: $dk-blue;
+}
+
+.border-bottom {
+  border-color: $dk-green;
+}
+
+caption {
+  text-align: right;
+}

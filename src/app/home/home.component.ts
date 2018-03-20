@@ -18,53 +18,66 @@ export class HomeComponent implements OnInit, OnDestroy {
   eduTypes: Button[];
   subscription: Subscription;
 
+  educationId: number;
+  studentTypeGroupId: number;
+
   constructor(private homeService: HomeService,
               private eduPickerService: EduPickerService,
-              private titleService: TitleService) { }
+              private titleService: TitleService) {
+  }
 
   ngOnInit() {
     this.titleService.setTitle('Hjem');
+
+    this.homeService
+      .loadButtons()
+      .subscribe(buttons => this.eduPickerButtons = buttons);
+
+    this.tableBeforeText = this.homeService.tableBeforeText;
 
     this.subscription = this.homeService.entriesChanged
       .subscribe((entries: Table[]) => {
         this.semesters = entries;
       }).add(
-        this.eduPickerService.selected$.subscribe(
-          clicked => {
-            this.onSelected(clicked);
-          }
-        )
+        this.eduPickerService.selectedStudentType$
+          .subscribe(
+            clicked => {
+              this.studentTypeGroupId = Number(clicked);
+              this.homeService
+                .getSemesters(this.educationId, this.studentTypeGroupId)
+                .subscribe(data => this.semesters = data);
+            }
+          )
       ).add(
-        this.eduPickerService.selectedStudentType$.subscribe(
-          clicked => {
-            this.onSelectedStudentType(clicked);
-          }
-        )
+        this.eduPickerService.selectedEducation$
+          .subscribe(
+            clicked => {
+              const eduId = Number(clicked);
+              this.educationId = eduId;
+              this.getStudentTypes(eduId);
+            }
+          )
       );
-
-    this.getEduPickerSetup();
   }
 
-  getSelectedSemesters(eduId: number) {
-    this.homeService.getSemesters(eduId);
+  getStudentTypes(eduId: number) {
+    // TODO: Restrict student types based on assigned groups.
+    this.homeService
+      .loadCards()
+      .subscribe(cards => this.eduTypes = cards)
   }
 
-  getSelectedStudentTypes(eduId: number) {
-   // this.homeService.getStudentTypes(eduId);
+  getSelectedSemesters() {
+    this.homeService
+      .getSemesters(this.educationId, this.studentTypeGroupId);
   }
 
   onSelected($event) {
-    this.getSelectedSemesters($event);
+
   }
 
   onSelectedStudentType($event) {
-    this.getSelectedStudentTypes($event);
-  }
 
-  getEduPickerSetup() {
-    const setup = this.homeService.getEduPickerSetup();
-    this.eduPickerButtons = setup.buttons;
-    this.tableBeforeText = setup.beforeText;
   }
 
   ngOnDestroy() {

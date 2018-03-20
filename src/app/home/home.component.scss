@@ -7,12 +7,15 @@
 .jumbotron-fluid {
   background: url('/assets/images/headers/home-header.jpg') no-repeat fixed center -70px;
   background-size: 100% 100%;
-  height: 320px;
   word-break: break-all;
 }
 
-.spacer {
-  height: 54%;
+.jumbotron {
+  margin-bottom: 0 !important;
+}
+
+main {
+  width: 80%;
 }
 
 .title-bg {

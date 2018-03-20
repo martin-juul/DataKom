@@ -9,10 +9,12 @@ import { EduPickerMenuComponent } from "./widgets/edupicker/menu/edu-picker-menu
 import { EduPickerComponent } from "./widgets/edupicker/edu-picker.component";
 import { EduPickerService } from "./widgets/edupicker/edu-picker.service";
 import { EduPickerCardsComponent } from './widgets/edupicker/cards/edu-picker-cards.component';
+import { AccordionModule } from 'ngx-bootstrap';
 
 const BASE_MODULES = [
   CommonModule,
-  RouterModule
+  RouterModule,
+  AccordionModule
 ];
 
 const COMPONENTS = [

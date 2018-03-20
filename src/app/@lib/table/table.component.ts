@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { TableSemesterAcoordion } from '../../shared/data/model/table.model';
 
 @Component({
   selector: 'app-table',
@@ -9,6 +10,12 @@ export class TableComponent {
   @Input() headings: string[];
   @Input() footers: string[];
   @Input() caption: string;
-  @Input() columns: Array<Array<string>>;
+  @Input() columns: string[][];
+  @Input() accordions?: TableSemesterAcoordion[][];
 
+  isFirstOpen = 1;
+  panelClass = 'semesterPanel';
+
+  constructor() {
+  }
 }
