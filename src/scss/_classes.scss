@@ -1,0 +1,28 @@
+@import "colors";
+
+main {
+  width: fit-content;
+  height: auto;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.semesterPanel {
+  background-color: darken(#fff, 3%) !important;
+  border: 0 !important;
+  .panel-heading {
+    border-radius: 0 !important;
+    background-color: $dk-blue;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    .panel-title {
+      text-transform: uppercase;
+    }
+  }
+  .panel-heading:hover {
+    background-color: lighten($dk-blue, 2%);
+  }
+}

@@ -4,21 +4,76 @@ $dk-orange: hsl(28, 92%, 54%);
 $dk-blue: hsl(189, 100%, 25%);
 $dk-cyan: hsl(194, 64%, 53%);
 $dk-green: hsl(78, 66%, 43%);
+$dk-red: hsl(4, 90%, 58%);
 
 /* Color properties */
 
 .bg-orange {
   background-color: $dk-orange;
+  &:hover {
+    background-color: lighten($dk-orange, 5%);
+  }
+  &:focus, &:active, &.active {
+    background-color: lighten($dk-orange, 10%);
+    border-color: darken($dk-orange, 5%);
+  }
+  &.active:hover {
+    background-color: darken($dk-orange, 5%);
+  }
 }
 
 .bg-blue {
   background-color: $dk-blue;
+  &:hover {
+    background-color: lighten($dk-blue, 5%);
+  }
+  &:focus, &:active, &.active {
+    background-color: lighten($dk-blue, 10%);
+    border-color: darken($dk-blue, 5%);
+  }
+  &.active:hover {
+    background-color: darken($dk-blue, 5%);
+  }
 }
 
 .bg-cyan {
   background-color: $dk-cyan;
+  &:hover {
+    background-color: lighten($dk-cyan, 5%);
+  }
+  &:focus, &:active, &.active {
+    background-color: lighten($dk-cyan, 10%);
+    border-color: darken($dk-cyan, 5%);
+  }
+  &.active:hover {
+    background-color: darken($dk-cyan, 5%);
+  }
 }
 
 .bg-green {
   background-color: $dk-green;
+  &:hover {
+    background-color: lighten($dk-green, 5%);
+  }
+  &:focus, &:active, &.active {
+    background-color: lighten($dk-green, 10%);
+    border-color: darken($dk-green, 5%)
+  }
+  &.active:hover {
+    background-color: darken($dk-green, 5%);
+  }
+}
+
+.bg-red {
+  background-color: $dk-red;
+  &:hover {
+    background-color: lighten($dk-red, 10%);
+  }
+  &:focus, &:active, &.active {
+    background-color: lighten($dk-red, 5%);
+    border-color: darken($dk-red, 5%);
+  }
+  &.active:hover {
+    background-color: darken($dk-red, 5%);
+  }
 }
