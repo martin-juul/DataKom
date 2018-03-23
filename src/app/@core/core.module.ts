@@ -7,7 +7,6 @@ import { AppRoutingModule } from '../app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -15,7 +14,7 @@ import { FooterComponent } from './footer/footer.component';
   ],
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   exports: [
     AppRoutingModule,
