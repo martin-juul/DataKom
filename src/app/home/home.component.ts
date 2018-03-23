@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   eduPickerButtons: Button[];
   eduTypes: Button[];
   subscription: Subscription;
+  jumbotron_title = 'Data- og kommunikationsuddannelsen';
+  jumbotron_lead = 'Bliv en af danmarks kommende talenter indenfor IT.';
 
   educationId: number;
   studentTypeGroupId: number;
@@ -43,9 +45,11 @@ export class HomeComponent implements OnInit, OnDestroy {
           .subscribe(
             clicked => {
               this.studentTypeGroupId = Number(clicked);
-              this.homeService
-                .getSemesters(this.educationId, this.studentTypeGroupId)
-                .subscribe(data => this.semesters = data);
+                if (this.studentTypeGroupId > 0 && this.studentTypeGroupId !== undefined) {
+                  this.homeService
+                    .getSemesters(this.educationId, this.studentTypeGroupId)
+                    .subscribe(data => this.semesters = data);
+                }
             }
           )
       ).add(
@@ -65,19 +69,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.homeService
       .loadCards()
       .subscribe(cards => this.eduTypes = cards)
-  }
-
-  getSelectedSemesters() {
-    this.homeService
-      .getSemesters(this.educationId, this.studentTypeGroupId);
-  }
-
-  onSelected($event) {
-
-  }
-
-  onSelectedStudentType($event) {
-
   }
 
   ngOnDestroy() {
