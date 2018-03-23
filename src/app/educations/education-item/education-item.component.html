@@ -19,7 +19,7 @@
 
 <div
   class="container"
-  [innerHTML]="content?.content | markdown"
+  [innerHTML]="content?.content | markdown | sanitizeHtml"
   *ngIf="content">
 
 </div>

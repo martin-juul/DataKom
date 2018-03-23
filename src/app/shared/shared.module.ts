@@ -3,11 +3,20 @@ import { CommonModule } from '@angular/common';
 
 import { DataStorageService } from "./storage/data-storage.service";
 
+import { SanitizeHtmlPipe } from './pipes/sanitize-html.pipe';
+
+const PIPES = [
+  SanitizeHtmlPipe
+];
+
 @NgModule({
   imports: [],
-  declarations: [],
+  declarations: [
+    ...PIPES,
+  ],
   exports: [
-    CommonModule
+    CommonModule,
+    ...PIPES,
   ],
   providers: [
     DataStorageService

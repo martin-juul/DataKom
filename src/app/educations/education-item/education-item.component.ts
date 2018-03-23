@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { Content } from '../../shared/data/model/content.model';
 import { EducationsService } from '../educations.service';
 import { TitleService } from '../../shared/title.service';
+import { ErrorService } from '../../shared/error.service';
 
 @Component({
   selector: 'app-education-item',
@@ -16,6 +17,7 @@ export class EducationItemComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private educationsService: EducationsService,
               private titleService: TitleService) {
   }
@@ -26,11 +28,11 @@ export class EducationItemComponent implements OnInit, OnDestroy {
       this.educationsService.getContent(this.education)
         .then((result) => {
           this.content = (<Content>result.body);
-        });
-      // Velkommen til fusker biksen
-        setTimeout(() => {
           this.titleService.setTitle(this.content.header_title);
-        }, 200);
+        })
+        .catch((err: any) => {
+          this.router.navigateByUrl('/error');
+        });
     });
   }
 
