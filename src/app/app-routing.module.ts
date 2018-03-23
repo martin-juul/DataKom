@@ -4,9 +4,11 @@ import { NgModule } from '@angular/core';
 
 const appRoutes: Routes = [
   { path: '', loadChildren: './home/home.module#HomeModule' },
+  { path: 'error', loadChildren: './@errors/errors.module#ErrorsModule' },
   { path: 'uddannelser', loadChildren: './educations/educations.module#EducationsModule' },
   { path: 'elevtyper', loadChildren: './student-types/student-type.module#StudentTypeModule' },
-  { path: 'fag', loadChildren: './courses/courses.module#CoursesModule' }
+  { path: 'fag', loadChildren: './courses/courses.module#CoursesModule' },
+  { path: '**', redirectTo: 'error' }
 ];
 
 @NgModule({
@@ -15,5 +17,4 @@ const appRoutes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }
