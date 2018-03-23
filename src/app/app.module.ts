@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
 import { LibModule } from "./@lib/lib.module";
 import { MarkdownModule } from "ngx-markdown";
 import { TitleService } from "./shared/title.service";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { RouterService } from './shared/router.service';
 
 @NgModule({
   declarations: [
@@ -34,9 +34,11 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
   ],
   providers: [
     Title,
-    TitleService
+    TitleService,
+    RouterService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor(private routerService: RouterService) { }
 }
