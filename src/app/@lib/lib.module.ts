@@ -10,6 +10,7 @@ import { EduPickerComponent } from "./widgets/edupicker/edu-picker.component";
 import { EduPickerService } from "./widgets/edupicker/edu-picker.service";
 import { EduPickerCardsComponent } from './widgets/edupicker/cards/edu-picker-cards.component';
 import { AccordionModule } from 'ngx-bootstrap';
+import { JumbotronComponent } from './jumbotron/jumbotron.component';
 
 const BASE_MODULES = [
   CommonModule,
@@ -23,7 +24,8 @@ const COMPONENTS = [
   EduPickerMenuComponent,
   EduPickerTableComponent,
   EduPickerComponent,
-  EduPickerCardsComponent
+  EduPickerCardsComponent,
+  JumbotronComponent
 ];
 
 const PROVIDERS = [
