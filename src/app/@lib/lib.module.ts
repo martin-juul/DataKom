@@ -13,6 +13,7 @@ import { EduPickerService } from "./widgets/edupicker/edu-picker.service";
 import { EduPickerCardsComponent } from './widgets/edupicker/cards/edu-picker-cards.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { ErrorComponent } from './error/error.component';
+import { SharedModule } from '../shared/shared.module';
 
 const BASE_MODULES = [
   CommonModule,
@@ -38,6 +39,7 @@ const PROVIDERS = [
 @NgModule({
   imports: [
     ...BASE_MODULES,
+    SharedModule
   ],
   declarations: [
     ...COMPONENTS,
