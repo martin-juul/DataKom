@@ -7,7 +7,6 @@ const appRoutes: Routes = [
   { path: 'error', loadChildren: './@errors/errors.module#ErrorsModule' },
   { path: 'uddannelser', loadChildren: './educations/educations.module#EducationsModule' },
   { path: 'elevtyper', loadChildren: './student-types/student-type.module#StudentTypeModule' },
-  { path: 'fag', loadChildren: './courses/courses.module#CoursesModule' },
   { path: '**', redirectTo: 'error' }
 ];
 
