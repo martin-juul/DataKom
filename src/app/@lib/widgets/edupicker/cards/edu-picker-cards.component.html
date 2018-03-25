@@ -1,11 +1,10 @@
-<div class="row justify-content-center">
-  <div class="justify-content-between d-inline-flex w-75" *ngIf="buttons">
-
+<div *ngIf="buttons">
+  <div class="container d-flex justify-evenly flex-column flex-md-row">
     <button
       *ngFor="let button of buttons; index as i"
       (click)="selected(button?.emit, i)"
       [class.active]="clickedIndex === i"
-      class="btn {{ button?.color || getButtonColor(i) }}">
+      class="btn {{ button?.color || getButtonColor(i) }} mt-2 mt-md-0">
       {{ button?.label }}
     </button>
 

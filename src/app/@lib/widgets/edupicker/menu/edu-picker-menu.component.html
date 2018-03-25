@@ -1,14 +1,17 @@
-<div class="justify-content-between d-flex" *ngIf="buttons">
+<div *ngIf="buttons">
+  <div class="container d-flex justify-evenly flex-column flex-md-row">
 
-  <button
-    *ngFor="let button of buttons; index as i"
-    (click)="selected(button?.emit, i, button.label)"
-    [class.active]="clickedIndex === i"
-    class="btn {{ button?.color || getButtonColor(i) }}">
-    {{ button?.label }}
-  </button>
+    <button
+      *ngFor="let button of buttons; index as i"
+      (click)="selected(button?.emit, i, button.label)"
+      [class.active]="clickedIndex === i"
+      class="btn {{ button?.color || getButtonColor(i) }}">
+      {{ button?.label }}
+    </button>
 
+  </div>
 </div>
+
 
 <ng-template [ngIf]="isClicked == false">
   <h3 class="text-center mt-2">

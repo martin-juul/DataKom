@@ -26,3 +26,8 @@ main {
     background-color: lighten($dk-blue, 2%);
   }
 }
+
+.justify-evenly {
+  -webkit-box-pack: justify !important;
+  justify-content: space-evenly;
+}
