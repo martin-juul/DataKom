@@ -1,6 +1,6 @@
 <div
   *ngIf="content"
-  class="jumbotron jumbotron-fluid"
+  class="jumbotron jumbotron-fluid mb-0"
   [ngStyle]="{'background': 'url(' + content?.header_image + ') no-repeat fixed center -70px'}">
 
   <div class="container-fluid spacer"></div>
@@ -17,9 +17,10 @@
 
 </div>
 
-<div
-  class="container"
-  [innerHTML]="content?.content | markdown | sanitizeHtml"
-  *ngIf="content">
-
-</div>
+<main class="p-5">
+  <div
+    class="container"
+    [innerHTML]="content?.content | markdown | sanitizeHtml"
+    *ngIf="content">
+  </div>
+</main>
