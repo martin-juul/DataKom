@@ -8,7 +8,6 @@ export class ErrorService {
     return Promise.reject(error.message || error);
   }
 
-
   public static handleHttpError(err: HttpErrorResponse) {
     if (err.error instanceof Error) {
       console.error('A client-side or network error occurred.', err.error);
