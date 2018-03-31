@@ -1,21 +1,5 @@
-<div
-  *ngIf="content"
-  class="jumbotron jumbotron-fluid mb-0"
-  [ngStyle]="{'background': 'url(' + content?.header_image + ') no-repeat fixed center -70px'}">
-
-  <div class="container-fluid spacer"></div>
-
-  <div class="container-fluid title-bg">
-    <div class="container">
-
-      <h1
-        class="page-title"
-        *ngIf="content">{{ content?.header_title }}</h1>
-
-    </div>
-  </div>
-
-</div>
+<app-jumbotron
+  [title]="content?.header_title"></app-jumbotron>
 
 <main class="p-5">
   <div

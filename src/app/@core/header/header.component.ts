@@ -7,10 +7,19 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent implements OnInit {
+  burgerToggleState = true;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleBurger(): void {
+    this.burgerToggleState = !this.burgerToggleState;
+  }
+
+  closeBurger(): void {
+    this.burgerToggleState = true;
   }
 
 }

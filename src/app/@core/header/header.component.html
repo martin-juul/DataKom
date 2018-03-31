@@ -1,44 +1,58 @@
 <nav
-  class="navbar navbar-expand-lg navbar-light bg-light"
+  class="navbar navbar-expand-lg navbar-light bg-light my-1"
   role="navigation"
   aria-label="navigation">
 
   <a
-    class="navbar-brand mr-auto"
-    routerLink="/">
+    class="navbar-brand"
+    routerLink="/"
+    (click)="closeBurger()">
     DataKom
   </a>
 
-  <ul class="navbar-nav">
+  <button class="navbar-toggler"
+          type="button"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          (click)="toggleBurger()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <li
-      class="nav-item"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }">
-      <a
-        class="nav-link"
-        routerLink="/">
-        Hjem
-      </a>
-    </li>
+  <div class="navbar-collapse" [ngClass]="{'collapse': burgerToggleState}">
+    <ul class="navbar-nav ml-auto">
 
-    <li class="nav-item"
-        routerLinkActive="active">
-      <a
-        class="nav-link"
-        routerLink="uddannelser">
-        Uddannelser
-      </a>
-    </li>
+      <li
+        class="nav-item"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+        <a
+          class="nav-link"
+          routerLink="/"
+          (click)="closeBurger()">
+          Hjem
+        </a>
+      </li>
 
-    <li class="nav-item"
-        routerLinkActive="active">
-      <a
-        class="nav-link"
-        routerLink="elevtyper">
-        Elevtyper
-      </a>
-    </li>
+      <li class="nav-item"
+          routerLinkActive="active">
+        <a
+          class="nav-link"
+          routerLink="uddannelser"
+          (click)="closeBurger()">
+          Uddannelser
+        </a>
+      </li>
 
-  </ul>
+      <li class="nav-item"
+          routerLinkActive="active"
+          (click)="closeBurger()">
+        <a
+          class="nav-link"
+          routerLink="elevtyper">
+          Elevtyper
+        </a>
+      </li>
+
+    </ul>
+  </div>
 </nav>
