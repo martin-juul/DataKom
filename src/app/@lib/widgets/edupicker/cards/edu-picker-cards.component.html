@@ -4,7 +4,7 @@
       *ngFor="let button of buttons; index as i"
       (click)="selected(button?.emit, i)"
       [class.active]="clickedIndex === i"
-      class="btn {{ button?.color || getButtonColor(i) }} mt-2 mt-md-0">
+      class="btn {{ button?.color || getButtonColor(i) }} mt-2 mt-md-0 mr-5 ml-5 mr-md-0 ml-md-0">
       {{ button?.label }}
     </button>
 
