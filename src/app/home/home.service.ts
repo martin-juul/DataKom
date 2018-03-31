@@ -71,6 +71,9 @@ export class HomeService {
           if (col.length) {
             totalWeeks += parseFloat(col.length.replace(/[,]/g,'.'));
           }
+          if(col.course_no < 20) {
+            col.course_no = null;
+          }
           return [col.course_no, col.name, col.length]
         }),
         footers: ['', '', `Total ${totalWeeks}`],
