@@ -59,6 +59,7 @@ export class HomeComponent implements OnInit, OnDestroy {
               const eduId = Number(clicked);
               this.educationId = eduId;
               this.getStudentTypes(eduId);
+              this.semesters = undefined;
             }
           )
       );
